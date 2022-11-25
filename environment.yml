@@ -1,0 +1,10 @@
+name: doccano-client
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - python=3.10
+  - ipython
+  - pip
+  - flake8
+  - black

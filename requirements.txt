@@ -1,0 +1,3 @@
+pandas
+doccano-client==1.2.6
+openpyxl

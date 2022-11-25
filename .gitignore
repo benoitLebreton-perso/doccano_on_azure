@@ -1,0 +1,9 @@
+*.zip
+*.code-workspace
+*.csv
+*.egg-info
+.vscode/
+__pycache__/
+.pytest_cache/
+.DS_Store
+*.jsonl
