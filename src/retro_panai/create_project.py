@@ -45,21 +45,17 @@ for _, prez in prez_panai.iterrows():
         text=prez_name,
         )
     
-doccano_client.get_examples(project_id=5)
-
-down = doccano_client.download(project_id=project.id, format='JSONL', only_approved=False)
-down # unzip and the compute score
+# doccano_client.list_examples(project_id=5)
 
 
-doccano_client.member.list(5)
 
-doccano_client.add_member(project_id=project.id, username="cvandevelde", role_name="project_admin")
 
-doccano_client.get_members_progress(5)
+doccano_client.member.list(project_id=project.id)
+doccano_client.get_members_progress(project.id)
 
 users = doccano_client.search_users()
 
 for user in users:
-    doccano_client.add_member(project_id=project.id, username=user.username, role_name="project_admin")
+    doccano_client.add_member(project_id=project.id, username=user.username, role_name="annotator")
 
-doccano_client.list_roles()
+# doccano_client.list_roles()

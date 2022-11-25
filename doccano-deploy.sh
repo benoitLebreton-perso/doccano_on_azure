@@ -35,6 +35,7 @@ STUDIO_WORKERS=1
 STORAGE_ACCOUNT_NAME=qmdoccano
 STORAGE_CONTAINER_NAME=content
 
+# az postgres server show --resource-group $RG_NAME --name qmpostgresql
 
 echo "Logging into Azure"
 az login
