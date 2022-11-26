@@ -3,3 +3,9 @@ new-panai-retro:
 
 get-retro-panai-answers:
 	python src/retro_panai/get_answers.py
+
+tests:
+	python -m pytest tests
+
+coverage:
+	pytest --cov=src/retro_panai tests/
