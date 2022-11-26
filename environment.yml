@@ -8,3 +8,6 @@ dependencies:
   - pip
   - flake8
   - black
+  - pip:
+      - pytest==7.1.2
+      - pytest-responsemock==1.1.1
