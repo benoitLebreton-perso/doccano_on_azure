@@ -9,3 +9,4 @@ tests:
 
 coverage:
 	pytest --cov=src/retro_panai tests/
+	

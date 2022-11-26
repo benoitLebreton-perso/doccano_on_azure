@@ -10,11 +10,36 @@ from doccano_client.models.task_status import TaskStatus
 mock_url = "http://fake@url.com"
 
 
+
+@pytest.fixture(autouse=True)
+def mock_settings_env_vars():
+    with mock.patch.dict(
+        os.environ, 
+        {
+            "URL": mock_url,
+            "ADMIN_USERNAME": "fakeuser",
+            "ADMIN_PASSWORD": "fakepassword"
+        }
+        ):
+        yield
+
+
 @pytest.fixture()
 def mock_doccano_auth():
     return json.dumps({
         "key": "0264a0d944b9a29e6f863a8ce78b076958d766aa"
     })
+
+
+@pytest.fixture()
+def mock_profile():
+    dict_me = {
+        "id": 1,
+        "username": "fake_admin",
+        "is_superuser": True,
+        "is_staff": True
+        }
+    return json.dumps(dict_me)
 
 
 @pytest.fixture()
@@ -97,15 +122,3 @@ def mock_doccano_add_member():
     new_member = Member(user=20, role=3)
     return json.dumps(new_member.dict())
 
-
-@pytest.fixture(autouse=True)
-def mock_settings_env_vars():
-    with mock.patch.dict(
-        os.environ, 
-        {
-            "URL": mock_url,
-            "ADMIN_USERNAME": "fakeuser",
-            "ADMIN_PASSWORD": "fakepassword"
-        }
-        ):
-        yield

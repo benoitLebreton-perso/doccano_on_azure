@@ -1,13 +1,10 @@
 import os
 from doccano_client import DoccanoClient
+from src.login import login
 
 
 def main():
-    URL = os.environ['URL']
-    USER = os.environ['ADMIN_USERNAME']
-    PASSWORD = os.environ['ADMIN_PASSWORD']
-    doccano_client = DoccanoClient(base_url=URL)
-    doccano_client.login(username=USER, password=PASSWORD)
+    doccano_client = login()
     PROJECT_NAME = 'Retro panai'
 
 
@@ -18,7 +15,8 @@ def main():
 
     retro_panai_project
     down = doccano_client.download(project_id=retro_panai_project.id, format='JSONL', only_approved=False)
-    # down # unzip and the compute score
+    # down 
+    # # unzip and the compute score
 
 if __name__ == '__main__':
     main()
