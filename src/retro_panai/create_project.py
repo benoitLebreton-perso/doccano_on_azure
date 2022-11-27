@@ -1,6 +1,3 @@
-import os
-from doccano_client import DoccanoClient
-from doccano_client.models.data_upload import Task
 from src.retro_panai.prez_panai_repository import load_prez_repository
 from src.retro_panai.labels_repository import load_labels_repository
 from src.login import login
@@ -24,17 +21,17 @@ def main():
     label_types = create_labels(doccano_client, project, labels_repository)
 
     users = doccano_client.search_users()
-    members = [doccano_client.add_member(project_id=project.id, username=user.username, role_name="annotator") for user in users]
+    members = [doccano_client.add_member(project_id=project.id, username=user.username, role_name="annotator") for user in users if user.username != 'admin']
     return doccano_client, project, uploaded_images_task, label_types, users, members
+
 
 if __name__ == '__main__':
     doccano_client, project, uploaded_images_task, label_types, users, members = main()
-    doccano_client.user_details.get_current_user_details()
-    doccano_client.get_profile()
-    example_gen = doccano_client.list_examples(project_id=project.id)
-    images_id = [e.id for e in example_gen]
-    doccano_client.list_examples(project_id=5)
-    doccano_client.member.list(project_id=project.id)
-    doccano_client.get_members_progress(project.id)
-
-    doccano_client.list_roles()
+    # doccano_client.user_details.get_current_user_details()
+    # doccano_client.get_profile()
+    # example_gen = doccano_client.list_examples(project_id=project.id)
+    # images_id = [e.id for e in example_gen]
+    # doccano_client.list_examples(project_id=5)
+    # doccano_client.member.list(project_id=project.id)
+    # doccano_client.get_members_progress(project.id)
+    # doccano_client.list_roles()

@@ -3,7 +3,7 @@ from src.retro_panai.create_project import main
 from tests.mock_factory import *
 
 
-def test_create_project(
+def test_end_to_end_create_project(
         response_mock, 
         mock_profile,
         mock_doccano_auth, 

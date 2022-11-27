@@ -15,7 +15,7 @@ To check that the application is well scaled use the python script : stress_test
 
 **Launch a new panai retro game**
 ````bash
-make new-retro-panai
+make new-panai-retro
 ````
 
 **WIP Get answers**
