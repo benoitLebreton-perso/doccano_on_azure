@@ -13,8 +13,7 @@ def main():
 
     retro_panai_project
     down = doccano_client.download(project_id=retro_panai_project.id, format='JSONL', only_approved=False)
-    # down 
-    # # unzip and the compute score
+    # TODO unzip and the compute score
 
 if __name__ == '__main__':
     main()
