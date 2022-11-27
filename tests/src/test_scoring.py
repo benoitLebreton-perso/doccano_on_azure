@@ -1,5 +1,5 @@
 import pytest
-from src.faceswaps.scoring import scoring
+from src.scoring import scoring
 
 
 @pytest.mark.parametrize(

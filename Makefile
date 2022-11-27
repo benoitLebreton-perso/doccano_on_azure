@@ -8,5 +8,5 @@ tests:
 	python -m pytest tests
 
 coverage:
-	pytest --cov=src/retro_panai tests/
+	pytest --cov=src/ tests/
 	

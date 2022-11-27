@@ -37,14 +37,12 @@ def test_end_to_end_create_project(
             f'POST {mock_url}/v1/projects/{project_id}/members -> 200 : {mock_doccano_add_member}',
         ])
     with response_mock_:
-        doccano_client, project, uploaded_images_task, label_types, users, members = main()
+        doccano_client, project, uploaded_images_task, label_types, members = main()
         user = doccano_client.get_profile()
         assert user.username == "fake_admin"
         assert project.name == "Fake name"
         assert project.project_type == ProjectType.IMAGE_CLASSIFICATION
         assert uploaded_images_task[0].ready == True
         assert label_types[0].text == "new fake category"
-        assert len(users) == 2
-        assert users[0].username == 'fakeuser'
-        assert users[1].username == 'fakeuser2'
-        assert members[0].user == users[0].id
+        assert len(members) == 2
+        assert members[0].user == 20
