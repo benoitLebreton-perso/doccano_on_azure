@@ -57,7 +57,7 @@ jobs:
         echo "Coverage Time - ${{ steps.coverageComment.outputs.time }}"
         echo "Not Success Test Info - ${{ steps.coverageComment.outputs.notSuccessTestInfo }}"
     - name: Update Readme with Coverage Html
-      if: ${{ github.ref == 'refs/heads/main' }}
+      # if: ${{ github.ref == 'refs/heads/main' }}
       run: |
         sed -i '/<!-- Doccano on Azure:Begin -->/,/<!-- Doccano on Azure:End -->/c\<!-- Doccano on Azure:Begin -->\n\${{ steps.summary_report.outputs.content }}\n<!-- Doccano on Azure:End -->' ./README.md
     - name: Commit & Push changes to Readme
