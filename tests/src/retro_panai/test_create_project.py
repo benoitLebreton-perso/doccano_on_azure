@@ -1,25 +1,10 @@
 import pytest
 from src.retro_panai.create_project import main
 from doccano_client.models.project import ProjectType
-from tests.mock_factory import (
-    mock_settings_env_vars,
-    mock_profile,
-    mock_doccano_auth,
-    mock_doccano_create_project,
-    mock_doccano_upload,
-    mock_doccano_fp_process,
-    mock_doccano_task_status,
-    mock_doccano_existing_category_types,
-    mock_doccano_new_category_types,
-    mock_doccano_search_users,
-    mock_doccano_search_fakeuser,
-    mock_doccano_search_fakeuser2,
-    mock_doccano_roles,
-    mock_doccano_add_member,
-    mock_url,
-)
+from tests.conftest import mock_url
 
 
+@pytest.mark.endtoend
 def test_end_to_end_create_project(
     response_mock,
     mock_profile,

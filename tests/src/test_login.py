@@ -1,13 +1,9 @@
 import pytest
 from src.login import login
-from tests.mock_factory import (
-    mock_settings_env_vars,
-    mock_doccano_auth,
-    mock_profile,
-    mock_url,
-)
+from tests.conftest import mock_url
 
 
+@pytest.mark.unit
 def test_login(response_mock, mock_doccano_auth, mock_profile):
     response_mock_ = response_mock(
         [
