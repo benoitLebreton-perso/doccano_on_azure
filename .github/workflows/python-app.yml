@@ -56,13 +56,13 @@ jobs:
         echo "Coverage Tests - ${{ steps.coverageComment.outputs.tests }}"
         echo "Coverage Time - ${{ steps.coverageComment.outputs.time }}"
         echo "Not Success Test Info - ${{ steps.coverageComment.outputs.notSuccessTestInfo }}"
-    - name: Update Readme with Coverage Html
-      # if: ${{ github.ref == 'refs/heads/main' }}
-      run: |
-        sed -i '/<!-- Pytest coverage comment:Begin -->/,/<!-- Pytest coverage comment:End -->/c\<!-- Pytest coverage comment:Begin -->\n\${{ steps.summary_report.outputs.content }}\n<!-- Pytest coverage comment:End -->' ./README.md
-    - name: Commit & Push changes to Readme
-      # if: ${{ github.ref == 'refs/heads/main' }}
-      uses: actions-js/push@master
-      with:
-        message: Update coverage on Readme
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Update Readme with Coverage Html
+    #   # if: ${{ github.ref == 'refs/heads/main' }}
+    #   run: |
+    #     sed -i '/<!-- Pytest coverage comment:Begin -->/,/<!-- Pytest coverage comment:End -->/c\<!-- Pytest coverage comment:Begin -->\n\${{ steps.summary_report.outputs.content }}\n<!-- Pytest coverage comment:End -->' ./README.md
+    # - name: Commit & Push changes to Readme
+    #   # if: ${{ github.ref == 'refs/heads/main' }}
+    #   uses: actions-js/push@master
+    #   with:
+    #     message: Update coverage on Readme
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
