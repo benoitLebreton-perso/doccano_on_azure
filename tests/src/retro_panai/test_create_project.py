@@ -1,12 +1,14 @@
 import pytest
-from src.retro_panai.create_project import main
+from src.retro_panai.create_project import main as main_retro_panai
+from src.faceswaps.create_project import main as main_faceswaps
 from doccano_client.models.project import ProjectType
 from tests.conftest import mock_url
 
 
-@pytest.mark.endtoend
+@pytest.mark.parametrize("main", [main_retro_panai, main_faceswaps])
 def test_end_to_end_create_project(
     response_mock,
+    main,
     mock_profile,
     mock_doccano_auth,
     mock_doccano_create_project,
@@ -40,7 +42,7 @@ def test_end_to_end_create_project(
         ]
     )
     with response_mock_:
-        doccano_client, project, uploaded_images_task, label_types, members = main()
+        doccano_client, project, labels_repo, images_repo, label_types, uploaded_images_task, members = main()
         user = doccano_client.get_profile()
         assert user.username == "fake_admin"
         assert project.name == "Fake name"
