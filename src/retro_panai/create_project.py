@@ -8,7 +8,7 @@ from src.add_quanters_to_game import add_quanters_to_game
 
 def main():
     doccano_client = login()
-    PROJECT_NAME = 'Retro panai'
+    PROJECT_NAME = "Retro panai"
     images_repository = load_prez_repository()
     labels_repository = load_labels_repository()
     project = doccano_client.create_project(
@@ -16,7 +16,7 @@ def main():
         description=PROJECT_NAME,
         project_type="ImageClassification",
         guideline="identifie les prez de panai",
-        collaborative_annotation=False
+        collaborative_annotation=False,
     )
     uploaded_images_task = upload_images(doccano_client, project, images_repository)
     label_types = create_labels(doccano_client, project, labels_repository)
@@ -24,7 +24,7 @@ def main():
     return doccano_client, project, uploaded_images_task, label_types, members
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     doccano_client, project, uploaded_images_task, label_types, members = main()
     # doccano_client.user_details.get_current_user_details()
     # doccano_client.get_profile()

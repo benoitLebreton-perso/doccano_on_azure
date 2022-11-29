@@ -3,11 +3,11 @@ from src.scoring import scoring
 
 
 @pytest.mark.parametrize(
-    'correction,answer',
+    "correction,answer",
     [
-        (['mathylde', 'maureen'], ['mathylde', 'maureen']),
-        (['charles'], ['charles']),
-    ]
+        (["mathylde", "maureen"], ["mathylde", "maureen"]),
+        (["charles"], ["charles"]),
+    ],
 )
 def test_scoring_perfect(correction, answer):
     score_ = scoring(correction, answer)
@@ -15,15 +15,15 @@ def test_scoring_perfect(correction, answer):
 
 
 @pytest.mark.parametrize(
-    'correction,answer',
+    "correction,answer",
     [
-        (['mathylde', 'maureen'], ['charles']),
-        (['mathylde', 'maureen'], None),
-        (['mathylde', 'maureen'], []),
-        (['charles'], None),
-        (['charles'], ['mathylde', 'maureen']),
-        (['charles'], []),
-    ]
+        (["mathylde", "maureen"], ["charles"]),
+        (["mathylde", "maureen"], None),
+        (["mathylde", "maureen"], []),
+        (["charles"], None),
+        (["charles"], ["mathylde", "maureen"]),
+        (["charles"], []),
+    ],
 )
 def test_scoring_zero(correction, answer):
     score_ = scoring(correction, answer)
@@ -31,12 +31,12 @@ def test_scoring_zero(correction, answer):
 
 
 @pytest.mark.parametrize(
-    'correction, answer',
+    "correction, answer",
     [
-        (['mathylde', 'maureen'], ['mathylde']),
-        (['mathylde', 'maureen'], ['maureen']),
-        (['charles'], ['charles', 'maureen']),
-    ]
+        (["mathylde", "maureen"], ["mathylde"]),
+        (["mathylde", "maureen"], ["maureen"]),
+        (["charles"], ["charles", "maureen"]),
+    ],
 )
 def test_scoring_not_complete(correction, answer):
     score_ = scoring(correction, answer)

@@ -15,15 +15,31 @@ def main():
         description="a QM game",
         project_type="ImageClassification",
         guideline="identifie les quanters derrière ces face swaps",
-        collaborative_annotation=False
+        collaborative_annotation=False,
     )
     labels = create_labels(doccano_client, project, quanters)
     images = upload_images(doccano_client, project, face_swaps_repository)
     members = add_quanters_to_game(doccano_client, project)
-    return doccano_client, project, quanters, face_swaps_repository, labels, images, members
+    return (
+        doccano_client,
+        project,
+        quanters,
+        face_swaps_repository,
+        labels,
+        images,
+        members,
+    )
 
 
-if __name__ == '__main__':
-    doccano_client, project, quanters, face_swaps_repository, labels, images, members = main()
+if __name__ == "__main__":
+    (
+        doccano_client,
+        project,
+        quanters,
+        face_swaps_repository,
+        labels,
+        images,
+        members,
+    ) = main()
     r_me = doccano_client.get_me()
     print(r_me)

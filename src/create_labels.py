@@ -6,6 +6,6 @@ def create_labels(doccano_client, project, labels_repository):
             project_id=project.id,
             type="category",
             text=prez_name,
-            )
+        )
         label_types.append(label_type)
     return label_types
