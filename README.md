@@ -25,6 +25,13 @@ make get-retro-panai-answers
 ````
 
 **Unit testing**
-![Auto Updating Bagde](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/benoitLebreton-perso/44e25f64a1d02785dfa308d98878bf2a/raw/pytest-coverage-comment__main.json)
 
-https://gist.github.com/benoitLebreton-perso/44e25f64a1d02785dfa308d98878bf2a
+<img alt="Coverage" src="https://img.shields.io/badge/Coverage-40%25-orange.svg"/>
+
+````bash
+make tests
+````
+
+````bash
+make coverage
+````
