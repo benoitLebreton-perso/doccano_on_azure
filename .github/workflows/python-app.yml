@@ -61,7 +61,7 @@ jobs:
       run: |
         sed -i '/<!-- Doccano on Azure:Begin -->/,/<!-- Doccano on Azure:End -->/c\<!-- Doccano on Azure:Begin -->\n\${{ steps.summary_report.outputs.content }}\n<!-- Doccano on Azure:End -->' ./README.md
     - name: Commit & Push changes to Readme
-      if: ${{ github.ref == 'refs/heads/main' }}
+      # if: ${{ github.ref == 'refs/heads/main' }}
       uses: actions-js/push@master
       with:
         message: Update coverage on Readme
