@@ -59,7 +59,7 @@ jobs:
     - name: Update Readme with Coverage Html
       # if: ${{ github.ref == 'refs/heads/main' }}
       run: |
-        sed -i '/<!-- Doccano on Azure:Begin -->/,/<!-- Doccano on Azure:End -->/c\<!-- Doccano on Azure:Begin -->\n\${{ steps.summary_report.outputs.content }}\n<!-- Doccano on Azure:End -->' ./README.md
+        sed -i '/<!-- Pytest coverage comment:Begin -->/,/<!-- Pytest coverage comment:End -->/c\<!-- Pytest coverage comment:Begin -->\n\${{ steps.summary_report.outputs.content }}\n<!-- Pytest coverage comment:End -->' ./README.md
     - name: Commit & Push changes to Readme
       # if: ${{ github.ref == 'refs/heads/main' }}
       uses: actions-js/push@master
