@@ -20,6 +20,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+        fetch-depth: 0
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -53,13 +56,13 @@ jobs:
         echo "Coverage Tests - ${{ steps.coverageComment.outputs.tests }}"
         echo "Coverage Time - ${{ steps.coverageComment.outputs.time }}"
         echo "Not Success Test Info - ${{ steps.coverageComment.outputs.notSuccessTestInfo }}"
-    - name: Create the Badge
-      uses: schneegans/dynamic-badges-action@v1.6.0
+    - name: Update Readme with Coverage Html
+      if: ${{ github.ref == 'refs/heads/main' }}
+      run: |
+        sed -i '/<!-- Pytest Coverage Comment:Begin -->/,/<!-- Pytest Coverage Comment:End -->/c\<!-- Pytest Coverage Comment:Begin -->\n\${{ steps.summary_report.outputs.content }}\n<!-- Pytest Coverage Comment:End -->' ./README.md
+    - name: Commit & Push changes to Readme
+      if: ${{ github.ref == 'refs/heads/main' }}
+      uses: actions-js/push@master
       with:
-        auth: ${{ secrets.PYTEST_COVERAGE_COMMENT }}
-        gistID: 44e25f64a1d02785dfa308d98878bf2a
-        filename: pytest-coverage-comment__main.json
-        label: Coverage Report
-        message: ${{ steps.coverageComment.outputs.coverage }}
-        color: ${{ steps.coverageComment.outputs.color }}
-        namedLogo: python
+        message: Update coverage on Readme
+        github_token: ${{ secrets.GITHUB_TOKEN }}
