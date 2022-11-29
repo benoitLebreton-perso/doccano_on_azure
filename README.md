@@ -24,6 +24,6 @@ make get-retro-panai-answers
 ````
 
 **Unit testing**
-![Auto Updating Bagde](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/benoitLebreton-perso/b466566a5cc71cda436c7dc065f9796e/raw/pytest-coverage-comment__main.json)
+![Auto Updating Bagde](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/benoitLebreton-perso/44e25f64a1d02785dfa308d98878bf2a/raw/pytest-coverage-comment__main.json)
 
-https://gist.github.com/benoitLebreton-perso/b466566a5cc71cda436c7dc065f9796e
+https://gist.github.com/benoitLebreton-perso/44e25f64a1d02785dfa308d98878bf2a
