@@ -1,3 +1,4 @@
+# Doccano on Azure
 **Activate**
 ````bash
 source profile.sh
@@ -21,4 +22,17 @@ make new-panai-retro
 **WIP Get answers**
 ````bash
 make get-retro-panai-answers
+````
+
+**Unit testing**
+
+<!-- Pytest Coverage Comment:Begin -->
+<!-- Pytest Coverage Comment:End -->
+
+````bash
+make tests
+````
+
+````bash
+make coverage
 ````
