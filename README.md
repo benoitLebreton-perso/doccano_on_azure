@@ -26,7 +26,8 @@ make get-retro-panai-answers
 
 **Unit testing**
 
-<img alt="Coverage" src="https://img.shields.io/badge/Coverage-40%25-orange.svg"/>
+<!-- Pytest Coverage Comment:Begin -->
+<!-- Pytest Coverage Comment:End -->
 
 ````bash
 make tests

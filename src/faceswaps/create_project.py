@@ -7,9 +7,9 @@ from src.add_quanters_to_game import add_quanters_to_game
 
 
 def main():
+    doccano_client = login()
     quanters = load_quanters()
     face_swaps_repository = load_face_swap_repository()
-    doccano_client = login()
     project = doccano_client.create_project(
         name="QM face swap",
         description="a QM game",
