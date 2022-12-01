@@ -32,21 +32,20 @@ for answer_file in answers_files:
     answer_pd = pd.read_json(path_or_buf=answer_file, lines=True)
     answer_pd["player"] = player
     answers_of_all_players.append(answer_pd)
+    answers_all_players = pd.concat(answers_of_all_players)
 
-answers_of_all_players_pd = pd.concat(answers_of_all_players)
-answers_of_all_players_pd = pd.merge(
-    correct_answer_pd, answers_of_all_players_pd, how="left", on="filename"
+answers_all_players = correct_answer_pd.merge(
+    answers_all_players, how="left", on="filename"
+).assign(
+    **{
+        "score": lambda df: df.apply(
+            lambda row: scoring(row["correction"], row["label"]), axis=1
+        )
+    }
 )
 
 scores_of_players = (
-    answers_of_all_players_pd.assign(
-        **{
-            "score": lambda df: df.apply(
-                lambda row: scoring(row["correction"], row["label"]), axis=1
-            )
-        }
-    )
-    .groupby(by="player")
+    answers_all_players.groupby(by="player")
     .agg({"score": "sum"})
     .sort_values(by="score", ascending=False)
     .reset_index()
@@ -63,14 +62,7 @@ print(scores_of_players)
 # )
 
 difficulty_per_face_swa = (
-    answers_of_all_players_pd.assign(
-        **{
-            "score": lambda df: df.apply(
-                lambda row: scoring(row["correction"], row["label"]), axis=1
-            )
-        }
-    )
-    .groupby(by="filename")
+    answers_all_players.groupby(by="filename")
     .agg({"score": "sum"})
     .sort_values(by="score", ascending=False)
 )
