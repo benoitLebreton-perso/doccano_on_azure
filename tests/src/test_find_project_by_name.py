@@ -1,7 +1,8 @@
 import pytest
-from tests.conftest import mock_url
+
 from src.find_project_by_name import find_project_by_name
 from src.login import login
+from tests.conftest import mock_url
 
 
 @pytest.mark.unit

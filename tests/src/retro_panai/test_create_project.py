@@ -1,7 +1,8 @@
 import pytest
-from src.retro_panai.create_project import main as main_retro_panai
-from src.faceswaps.create_project import main as main_faceswaps
 from doccano_client.models.project import ProjectType
+
+from src.faceswaps.create_project import main as main_faceswaps
+from src.retro_panai.create_project import main as main_retro_panai
 from tests.conftest import mock_url
 
 

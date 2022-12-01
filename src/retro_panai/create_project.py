@@ -1,9 +1,9 @@
-from src.retro_panai.prez_panai_repository import load_prez_repository
-from src.retro_panai.labels_repository import load_labels_repository
-from src.login import login
-from src.upload_images import upload_images
-from src.create_labels import create_labels
 from src.add_quanters_to_game import add_quanters_to_game
+from src.create_labels import create_labels
+from src.login import login
+from src.retro_panai.labels_repository import load_labels_repository
+from src.retro_panai.prez_panai_repository import load_prez_repository
+from src.upload_images import upload_images
 
 
 def main():

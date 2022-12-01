@@ -1,7 +1,8 @@
 import os
-from doccano_client import DoccanoClient
-from src.faceswaps.quanters_repository import load_quanters
 
+from doccano_client import DoccanoClient
+
+from src.faceswaps.quanters_repository import load_quanters
 
 URL = os.environ["URL"]
 PASSWORD = os.environ["RANDOM_PASSWORD"]

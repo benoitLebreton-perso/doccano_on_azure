@@ -1,11 +1,10 @@
 import json
 import os
-import pytest
 from unittest import mock
-from doccano_client.models.project import Project
-from doccano_client.models.project import ProjectType
-from doccano_client.models.task_status import TaskStatus
 
+import pytest
+from doccano_client.models.project import Project, ProjectType
+from doccano_client.models.task_status import TaskStatus
 
 mock_url = "http://fake@url.com"
 

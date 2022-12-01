@@ -1,9 +1,9 @@
-from src.login import login
-from src.faceswaps.quanters_repository import load_quanters
-from src.faceswaps.face_swap_repository import load_face_swap_repository
-from src.create_labels import create_labels
-from src.upload_images import upload_images
 from src.add_quanters_to_game import add_quanters_to_game
+from src.create_labels import create_labels
+from src.faceswaps.face_swap_repository import load_face_swap_repository
+from src.faceswaps.quanters_repository import load_quanters
+from src.login import login
+from src.upload_images import upload_images
 
 
 def main():
