@@ -57,6 +57,24 @@ def mock_doccano_create_project():
 
 
 @pytest.fixture()
+def mock_doccano_get_projects():
+    project = Project(
+        id=1,
+        name="Fake name",
+        description="Fake description",
+        guideline="fake guideline",
+        project_type=ProjectType.IMAGE_CLASSIFICATION,
+        random_order=False,
+        collaborative_annotation=False,
+        single_class_classification=False,
+        allow_overlapping=False,
+        grapheme_mode=False,
+    )
+    result = {"count": 1, "next": None, "previous": None, "results": [project.dict()]}
+    return json.dumps(result)
+
+
+@pytest.fixture()
 def mock_doccano_upload():
     task_status = TaskStatus(ready=True, result={"error": []}, error=None)
     task_id_dict = {"task_id": 1}
