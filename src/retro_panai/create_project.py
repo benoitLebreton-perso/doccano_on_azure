@@ -20,7 +20,6 @@ def main():
     label_types = create_labels(doccano_client, project, labels_repository)
     uploaded_images_task = upload_images(doccano_client, project, images_repository)
     members = add_quanters_to_game(doccano_client, project)
-    #return doccano_client, project, labels_repository, uploaded_images_task, label_types, members
     return (
         doccano_client,
         project,
@@ -31,7 +30,8 @@ def main():
         members,
     )
 
-if __name__ == "__main__":
+
+if __name__ == "__main__":  # pragma: no cover
     doccano_client, project, uploaded_images_task, label_types, members = main()
     # doccano_client.user_details.get_current_user_details()
     # doccano_client.get_profile()
