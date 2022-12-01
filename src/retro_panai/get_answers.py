@@ -13,5 +13,5 @@ def main():
     # TODO unzip and the compute score
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()
