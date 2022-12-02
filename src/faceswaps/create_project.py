@@ -23,7 +23,6 @@ def main():
     return (
         doccano_client,
         project,
-        quanters,
         face_swaps_repository,
         labels,
         images,
@@ -35,7 +34,6 @@ if __name__ == "__main__":  # pragma: no cover
     (
         doccano_client,
         project,
-        quanters,
         face_swaps_repository,
         labels,
         images,

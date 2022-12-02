@@ -25,7 +25,6 @@ def main():
     return (
         doccano_client,
         project,
-        labels_repository,
         images_repository,
         label_types,
         uploaded_images_task,
@@ -37,7 +36,6 @@ if __name__ == "__main__":  # pragma: no cover
     (
         doccano_client,
         project,
-        labels_repository,
         images_repository,
         label_types,
         uploaded_images_task,
