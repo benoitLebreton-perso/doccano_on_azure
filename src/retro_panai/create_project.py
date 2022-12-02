@@ -1,7 +1,7 @@
 from src.add_quanters_to_game import add_quanters_to_game
 from src.create_labels import create_labels
 from src.login import login
-from retro_panai.repositories.data_repository import (
+from src.retro_panai.repositories.data_repository import (
     load_labels_repository,
     load_prez_repository,
 )
