@@ -3,7 +3,7 @@
 ## Deployment
 Follow the `doccano-deploy.sh` script to deploy your resource.
 We need to have an Azure Ressource Group and a running Posgres server in it.
-It required the following env variables in your shell.
+It required the following env variables in your shell (fill the `profile.sh` file).
 
 - you choose the admin username, password and email for doccano
   - ADMIN_USERNAME
@@ -11,7 +11,7 @@ It required the following env variables in your shell.
   - ADMIN_EMAIL
 - you find the information about the existing resources
   - SUBSCRIPTION_ID
-  - POSTGRES_SERVER_NAME (az postgres server list --resource-group $RG_NAME | grep fullyQualifiedDomainName, you also can parse it with `jq`)
+  - POSTGRES_SERVER_NAME (`az postgres server list --resource-group $RG_NAME | grep fullyQualifiedDomainName`, you also can parse it with `jq`)
   - CREATION_POSTGRES_ADMIN_USERNAME
   - POSTGRES_SERVER_PASSWORD
   - DATABASE_NAME
@@ -30,6 +30,8 @@ make activate
 ````bash
 make new-panai-retro
 ````
+![Screen-annotation](docs/screen-annotation.png?raw=true "Screen-annotation")
+
 
 **WIP Get answers**
 

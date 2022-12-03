@@ -37,8 +37,7 @@ def load_answers(answer_path):
     return answers_all_players
 
 
-def load_correction():
-    answer_path = "src/retro_panai/data/"
+def load_correction(answer_path):
     correct_path = os.path.join(answer_path, "admin.jsonl")
     correct_answer_pd = pd.read_json(path_or_buf=correct_path, lines=True)
     correct_answer_pd = correct_answer_pd.rename(columns={"label": "correction"})

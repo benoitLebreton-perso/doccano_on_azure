@@ -20,7 +20,7 @@ def main():
     # TODO unzip and the compute score
     answer_path = unzip(down.name)
     answer_path = "src/retro_panai/data/answers"
-    correction = load_correction()
+    correction = load_correction(answer_path)
     answers = load_answers(answer_path)
     answers = process_answers(answers, correction)
     leaderboard = compute_leaderboard(answers)
