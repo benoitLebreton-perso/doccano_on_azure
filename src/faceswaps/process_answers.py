@@ -4,7 +4,7 @@ from glob import glob
 
 import pandas as pd
 
-from src.faceswaps.quanters_repository import load_quanters
+from quanters_repository import load_quanters
 from src.scoring import scoring
 
 quanters_repo = load_quanters()

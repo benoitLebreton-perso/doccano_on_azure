@@ -43,7 +43,7 @@ def test_end_to_end_create_project(
         ]
     )
     with response_mock_:
-        doccano_client, project, labels_repo, images_repo, label_types, uploaded_images_task, members = main()
+        doccano_client, project, images_repo, label_types, uploaded_images_task, members = main()
         user = doccano_client.get_profile()
         assert user.username == "fake_admin"
         assert project.name == "Fake name"
