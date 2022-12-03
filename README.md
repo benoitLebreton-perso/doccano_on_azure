@@ -3,7 +3,7 @@
 ## Deployment
 Follow the `doccano-deploy.sh` script to deploy your resource.
 We need to have an Azure Ressource Group and a running Posgres server in it.
-It required the following env variables in your shell (fill the `profile.sh` file).
+It required the following env variables in your shell (fill the `profile.sh` file from the `profile.sh.template`).
 
 - you choose the admin username, password and email for doccano
   - ADMIN_USERNAME
@@ -15,6 +15,7 @@ It required the following env variables in your shell (fill the `profile.sh` fil
   - CREATION_POSTGRES_ADMIN_USERNAME
   - POSTGRES_SERVER_PASSWORD
   - DATABASE_NAME
+- when you have deployed your doccano App Service, report the URL in the `profil.sh`
 
 **Activate**
 ````bash
