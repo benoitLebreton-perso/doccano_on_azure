@@ -205,10 +205,18 @@ az webapp config appsettings set \
 
 
 # add ip to postgresql instance firewall
-az webapp show --resource-group $RG_NAME --name $WEB_APP_NAME --query outboundIpAddresses --output tsv
+export OUTBOUND_IP_ADDRESSES=$(az webapp show --resource-group $RG_NAME --name $WEB_APP_NAME --query outboundIpAddresses --output tsv)
 
-# manually add the IP addresses to the postgres
-
+# manually add the IP addresses to the postgres or use the az CLI
+count=0
+for i in $(echo $OUTBOUND_IP_ADDRESSES | tr "," "\n")
+do
+  echo "$i\n"
+  az postgres server firewall-rule create --start-ip-address $i --end-ip-address $i --name doccano${count} --resource-group $RG_NAME --server-name qmpostgresql
+  let "count+=1" 
+  echo "$count\n"
+  echo "doccano${count}"
+done
 
 echo "Linking storage account to web app"
 az webapp config storage-account add \

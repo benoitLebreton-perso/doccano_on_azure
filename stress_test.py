@@ -2,7 +2,8 @@ import os
 
 from doccano_client import DoccanoClient
 
-from quanters_repository import load_quanters
+from src.quanters_repository import load_quanters
+
 
 URL = os.environ["URL"]
 PASSWORD = os.environ["RANDOM_PASSWORD"]
@@ -11,7 +12,7 @@ f_d.login(username="vgouin", password=PASSWORD)
 f_d.get_profile()
 users = load_quanters()
 users = users["username"]
-users = users[0:3]
+users = users[0:20]
 
 
 doccano_clients = [DoccanoClient(base_url=URL) for _ in users]
