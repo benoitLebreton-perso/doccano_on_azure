@@ -1,4 +1,21 @@
 # Doccano on Azure
+
+## Deployment
+Follow the `doccano-deploy.sh` script to deploy your resource.
+We need to have an Azure Ressource Group and a running Posgres server in it.
+It required the following env variables in your shell.
+
+- you choose the admin username, password and email for doccano
+  - ADMIN_USERNAME
+  - ADMIN_PASSWORD
+  - ADMIN_EMAIL
+- you find the information about the existing resources
+  - SUBSCRIPTION_ID
+  - POSTGRES_SERVER_NAME (az postgres server list --resource-group $RG_NAME | grep fullyQualifiedDomainName, you also can parse it with `jq`)
+  - CREATION_POSTGRES_ADMIN_USERNAME
+  - POSTGRES_SERVER_PASSWORD
+  - DATABASE_NAME
+
 **Activate**
 ````bash
 source profile.sh
@@ -8,18 +25,14 @@ or
 make activate
 ````
 
-
-**Stress test**
-
-To check that the application is well scaled use the python script : stress_test.py
-
-
 **Launch a new panai retro game**
+
 ````bash
 make new-panai-retro
 ````
 
 **WIP Get answers**
+
 ````bash
 make get-retro-panai-answers
 ````
@@ -39,6 +52,7 @@ make coverage
 ````
 
 # Scale out
+
 To handle the workload before a massive session :
 
 On Azure portal/App Service resource : Scale-up
@@ -66,11 +80,13 @@ And whitlist it in the postgreSQL database.
 Either manually, or...
 
 ### Get the outbound ips of the App Service resource
+
 ````bash
 export OUTBOUND_IP_ADDRESSES=$(az webapp show --resource-group $RG_NAME --name $WEB_APP_NAME --query outboundIpAddresses --output tsv)
 ````
 
 ### Whitelist all of them in th PostgreSQL resource
+
 ````bash
 count=0
 for i in $(echo $OUTBOUND_IP_ADDRESSES | tr "," "\n")
@@ -81,7 +97,19 @@ do
   echo "$count\n"
   echo "doccano${count}"
 done
-...
 ````
 
 TODO : if we terraform this infrastructure, this can be simplified.
+
+# Stress test
+
+In order to test if your application is well scaled and will handle the workload.
+You can do a stress test. The following test create 100 of simulataneous connections and use the admin account to annotate and un-annotate an image a 100 of times.
+
+````bash
+$ python stress_test.py
+````
+
+And follow the metric you want (response time for example) on Azure portal App Service resource/Monitoring.
+
+![Monitor-Response-Time](docs/monitor-response-time.png?raw=true "Monitor-Response-Time")
