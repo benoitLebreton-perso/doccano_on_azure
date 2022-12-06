@@ -8,11 +8,13 @@ from glob import glob
 
 def load_labels_repository():
     prez_panai = pd.read_csv("src/retro_panai/data/labels_repository.csv")
+    prez_panai = prez_panai.sort_values(by='label')
     return prez_panai
 
 
 def load_prez_repository():
     prez_panai = pd.read_csv("src/retro_panai/data/prez_panai_repository.csv")
+    prez_panai = prez_panai.sample(frac=1)
     return prez_panai
 
 
